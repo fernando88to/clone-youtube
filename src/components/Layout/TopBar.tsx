@@ -1,5 +1,10 @@
-import {AppBar, styled, Toolbar} from "@mui/material";
+import Image from "next/image";
+import {AppBar, Button, Hidden, IconButton, InputBase, Paper, styled, Toolbar} from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import Box from "@mui/material/Box";
 import theme from "../../config/theme";
+import {AccountCircle, Apps, MoreVert, VideoCall} from "@mui/icons-material";
 
 
 const AppBarCustomize = styled(AppBar)({
@@ -9,14 +14,82 @@ const AppBarCustomize = styled(AppBar)({
 
 }) as typeof AppBar;
 
+const ImageCustomize = styled(Image)({
+    cursor: "pointer",
+    height: 18,
+    marginLeft: theme.spacing(3)
+
+}) as typeof Image;
+
+
+const ToolbarCustomize = styled(Toolbar)({
+    minHeight: 56,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between"
+}) as typeof Toolbar;
+
+const PaperCustomize = styled(Paper)({
+    padding: '2px 4px',
+    display: "flex",
+    alignItems: "center",
+    height: 35,
+    width: 700
+}) as typeof Paper;
+
+const IconButtonCustomize = styled(IconButton)({
+
+}) as typeof IconButton;
+
+const InputBaseCustomize = styled(InputBase)({
+    flex: 1
+}) as typeof InputBase;
 
 function TopBar() {
 
     return (
         <AppBarCustomize color="default">
-            <Toolbar>
-                <p>oi</p>
-            </Toolbar>
+            <ToolbarCustomize>
+                <Box display="flex" alignItems="center">
+                    <MenuIcon/>
+                    <ImageCustomize src="/new-youtube-logo.svg" alt="logo" width="95" height="18"/>
+                </Box>
+                {/*vai ficar invisivel quando o dispositivo for menor que md*/}
+                <Hidden mdDown>
+                    <Box>
+                        <PaperCustomize component="form">
+                            <InputBaseCustomize
+                                placeholder="Pesquisar"
+                                inputProps={{"aria-label": "search google maps"}}
+                            />
+                            <IconButton type="submit"
+                                        aria-label="search">
+                                <SearchIcon/>
+                            </IconButton>
+                        </PaperCustomize>
+                    </Box>
+                </Hidden>
+
+                <Box display="flex">
+                    <IconButtonCustomize >
+                        <VideoCall/>
+                    </IconButtonCustomize>
+                    <IconButtonCustomize >
+                        <Apps/>
+                    </IconButtonCustomize>
+                    <IconButtonCustomize >
+                        <MoreVert />
+                    </IconButtonCustomize>
+                    <Button
+                        color="secondary"
+                        component="a"
+                        variant="outlined"
+                        startIcon={<AccountCircle />}>
+                        Fazer Login
+                    </Button>
+                </Box>
+
+            </ToolbarCustomize>
         </AppBarCustomize>
     );
 }
