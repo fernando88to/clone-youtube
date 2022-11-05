@@ -2,6 +2,7 @@ import Head from "next/head";
 import styled from "@emotion/styled";
 import theme from "../../config/theme";
 import TopBar from "./TopBar";
+import NavBar from "./NavBar";
 
 const Root = styled('div')(({theme:Theme}) => ({
     // color: theme.palette.primary.contrastText,
@@ -53,7 +54,7 @@ function Layout(props: propLayout) {
             </Head>
             <Root>
                 <TopBar></TopBar>
-                <div>navbar</div>
+                <NavBar></NavBar>
                 <Wrapper>
                     <ContentContainer>
                         <Content>
