@@ -10,8 +10,8 @@ import {useRouter} from "next/router";
 import {styled} from "@mui/system";
 import Typography from "@mui/material/Typography";
 import {AccountCircle} from "@mui/icons-material";
-
-
+import Link from "next/link";
+import React from "react";
 
 
 const ListItemTextCustomizer = styled(ListItemText)({
@@ -20,8 +20,8 @@ const ListItemTextCustomizer = styled(ListItemText)({
 
 const StyledDiv = styled('div')({
     width: 240,
-    paddingTop:62,
-    borderRight:'none'
+    paddingTop: 62,
+    borderRight: 'none'
 
 });
 
@@ -84,26 +84,38 @@ function NavBar() {
     const router = useRouter();
 
     const isSelected = (item: Menu) => {
-        return router.pathname=== item.path;
+        return router.pathname === item.path;
+    }
+
+    const handleClickItem = (path?: string) => {
+        if(!path){
+            router.push('/');
+            return
+        }
+        router.push(path);
     }
 
 
     const content = (
         <Box height="100%" display="flex" flexDirection="column">
-            <List style={{paddingTop:0}}>
+            <List style={{paddingTop: 0}}>
                 {primaryMenu.map(item => {
                     const Icon = item.icon;
                     return (
                         <ListItemCustomizer
                             key={item.id}
                             button
-                            selected={isSelected(item)}>
+                            selected={isSelected(item)}
+                            onClick={()=> {
+                                handleClickItem(item.path);
+                            }}>
                             <ListItemIcon>
-                                <Icon style={{color:isSelected(item) && '#f44336'}}></Icon>
+                                <Icon style={{color: isSelected(item) && '#f44336'}}></Icon>
                             </ListItemIcon>
                             <ListItemTextCustomizer
                                 primary={item.label}>
                             </ListItemTextCustomizer>
+
 
                         </ListItemCustomizer>
 
@@ -120,7 +132,7 @@ function NavBar() {
                             button
                             selected={isSelected(item)}>
                             <ListItemIcon>
-                                <Icon style={{color:isSelected(item) && '#f44336'}}></Icon>
+                                <Icon style={{color: isSelected(item) && '#f44336'}}></Icon>
                             </ListItemIcon>
                             <ListItemTextCustomizer
                                 primary={item.label}>
