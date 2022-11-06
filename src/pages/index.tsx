@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         {
             authorName: 'Fernando',
             thumb: '/thumb/next01.png',
-            title: 'My vides',
+            title: 'My vides2',
             authorAvatar: 'sem avatar',
             updateAt: new Date(),
             views: 150
@@ -28,7 +28,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         {
             authorName: 'Fernando',
             thumb: '/thumb/next01.png',
-            title: 'My vides',
+            title: 'My vides3',
             authorAvatar: 'sem avatar',
             updateAt: new Date(),
             views: 150
@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         {
             authorName: 'Fernando',
             thumb: '/thumb/next01.png',
-            title: 'My vides',
+            title: 'My vides4',
             authorAvatar: 'sem avatar',
             updateAt: new Date(),
             views: 150
@@ -44,7 +44,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         {
             authorName: 'Fernando',
             thumb: '/thumb/next01.png',
-            title: 'My vides',
+            title: 'My vides5',
             authorAvatar: 'sem avatar',
             updateAt: new Date(),
             views: 150
@@ -52,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         {
             authorName: 'Fernando',
             thumb: '/thumb/next01.png',
-            title: 'My vides',
+            title: 'My vides6',
             authorAvatar: 'sem avatar',
             updateAt: new Date(),
             views: 150
@@ -60,7 +60,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
         {
             authorName: 'Fernando',
             thumb: '/thumb/next01.png',
-            title: 'My vides',
+            title: 'My vides7',
             authorAvatar: 'sem avatar',
             updateAt: new Date(),
             views: 150
