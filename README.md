@@ -1,9 +1,9 @@
 ## Getting Started
 
 
-Parei aqui 
+### Parei aqui
 
-https://www.youtube.com/watch?v=dLzN2ZtvZjU&list=PLkFMdTTdI9c3dqQ9rp-I49SQ0-9AjOVHR&index=7
+https://www.youtube.com/watch?v=3j4F9al12mw
 
 ### COnfiguração do OAuth2 do google
 
@@ -14,3 +14,8 @@ https://www.youtube.com/watch?v=dLzN2ZtvZjU&list=PLkFMdTTdI9c3dqQ9rp-I49SQ0-9AjO
 5. Na configuração 'Origens JavaScript autorizadas' adicionar a url 'http://localhost:3000'
 6. Na configuração 'URIs de redirecionamento autorizados' adicionar a url 'http://localhost:3000/api/auth/callback/google'
 7. Copiar as CLIENT_ID e CLIENT_SECRET
+
+### Projeto de exemplo do next auth com typescript 
+
+
+https://github.com/nextauthjs/next-auth-typescript-example

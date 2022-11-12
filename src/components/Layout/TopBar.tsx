@@ -47,6 +47,7 @@ const InputBaseCustomize = styled(InputBase)({
 
 function TopBar() {
     const { data: session } = useSession();
+    session?.address && console.log(session?.address);
 
 
     return (
