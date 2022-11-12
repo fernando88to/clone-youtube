@@ -4,7 +4,8 @@ import theme from "../../config/theme";
 import TopBar from "./TopBar";
 import NavBar from "./NavBar";
 
-const Root = styled('div')(({theme:Theme}) => ({
+
+const Root = styled('div')(({theme: Theme}) => ({
     // color: theme.palette.primary.contrastText,
     // backgroundColor: theme.palette.primary.main,
     // padding: theme.spacing(1),
@@ -12,32 +13,32 @@ const Root = styled('div')(({theme:Theme}) => ({
 
     //backgroundColor: theme.palette.background.
     backgroundColor: theme.palette.primary.dark,
-    display:'flex',
+    display: 'flex',
     height: '100vh',
-    overflow:'hidden',
-    width:'100vw'
+    overflow: 'hidden',
+    width: '100vw'
 }));
 
-const Wrapper = styled('div')(({theme:Theme}) => ({
-    display:'flex',
+const Wrapper = styled('div')(({theme: Theme}) => ({
+    display: 'flex',
     flex: '1 1 auto',
-    overflow:'hidden',
+    overflow: 'hidden',
     paddingTop: 64,
-    [theme.breakpoints.up('lg')]:{
-        paddingLeft:256,
+    [theme.breakpoints.up('lg')]: {
+        paddingLeft: 256,
     }
 }));
 
-const ContentContainer = styled('div')(({theme:Theme}) => ({
-    display:'flex',
-    flex:'1 1 auto',
-    overflow:'hidden'
+const ContentContainer = styled('div')(({theme: Theme}) => ({
+    display: 'flex',
+    flex: '1 1 auto',
+    overflow: 'hidden'
 }));
 
-const Content = styled('div')(({theme:Theme}) => ({
-    flex:'1 1 auto',
+const Content = styled('div')(({theme: Theme}) => ({
+    flex: '1 1 auto',
     height: '100%',
-    overflow:'auto'
+    overflow: 'auto'
 }));
 
 interface propLayout {

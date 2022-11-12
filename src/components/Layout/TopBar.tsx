@@ -1,11 +1,11 @@
 import Image from "next/image";
-import {AppBar, Button, Hidden, IconButton, InputBase, Paper, styled, Toolbar} from "@mui/material";
+import {AppBar, Avatar, Button, Hidden, IconButton, InputBase, Paper, styled, Toolbar} from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import Box from "@mui/material/Box";
 import theme from "../../config/theme";
 import {AccountCircle, Apps, MoreVert, VideoCall} from "@mui/icons-material";
-
+import { useSession, signIn, signOut } from "next-auth/react"
 
 const AppBarCustomize = styled(AppBar)({
     boxShadow: "none",
@@ -46,6 +46,8 @@ const InputBaseCustomize = styled(InputBase)({
 }) as typeof InputBase;
 
 function TopBar() {
+    const { data: session } = useSession();
+
 
     return (
         <AppBarCustomize color="default">
@@ -80,13 +82,25 @@ function TopBar() {
                     <IconButtonCustomize >
                         <MoreVert />
                     </IconButtonCustomize>
-                    <Button
-                        color="secondary"
-                        component="a"
-                        variant="outlined"
-                        startIcon={<AccountCircle />}>
-                        Fazer Login
-                    </Button>
+                    {!session ? (
+                        <Button
+                            onClick={()=>{signIn('google')}}
+                            color="secondary"
+                            component="a"
+                            variant="outlined"
+                            startIcon={<AccountCircle />}>
+                            Fazer Login
+                        </Button>
+                    ): (
+                        <Box display="flex">
+                            <Avatar
+                                onClick={()=>{signOut()}}
+                                alt="Usuario"
+                                src={session?.user?.image || ""}>
+                            </Avatar>
+                        </Box>
+                    ) }
+
                 </Box>
 
             </ToolbarCustomize>
