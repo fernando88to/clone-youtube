@@ -1,3 +1,5 @@
+import {ObjectId} from  'mongodb'
+
 export interface VideoType {
     authorName: string
     authorAvatar: string
@@ -5,6 +7,7 @@ export interface VideoType {
     thumb: string
     views: number
     updateAt: Date
+    _id: ObjectId;
 
 
 }

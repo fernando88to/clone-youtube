@@ -5,67 +5,12 @@ import Box from "@mui/material/Box";
 import {VideoCard} from "../components/VideoCard";
 import {VideoType} from "../types/VideoType";
 import {Grid} from "@mui/material";
+import {mongoClientServices} from "../databases/mongoClientServices";
 
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const data: VideoType[] = [
-        {
-            authorName: 'Fernando',
-            thumb: '/thumb/next01.png',
-            title: 'My vides sfsdfa adfad a adsfasd adfa d adf sdfs sdfa adfa adfa dfsdfadf adfh adjfh akjdfh kajf dhakdhfkadshflsdj flakjds flajsdf ldkjs f',
-            authorAvatar: 'sem avatar',
-            updateAt: new Date(),
-            views: 150
-        },
-        {
-            authorName: 'Fernando',
-            thumb: '/thumb/next01.png',
-            title: 'My vides2',
-            authorAvatar: 'sem avatar',
-            updateAt: new Date(),
-            views: 150
-        },
-        {
-            authorName: 'Fernando',
-            thumb: '/thumb/next01.png',
-            title: 'My vides3',
-            authorAvatar: 'sem avatar',
-            updateAt: new Date(),
-            views: 150
-        },
-        {
-            authorName: 'Fernando',
-            thumb: '/thumb/next01.png',
-            title: 'My vides4',
-            authorAvatar: 'sem avatar',
-            updateAt: new Date(),
-            views: 150
-        },
-        {
-            authorName: 'Fernando',
-            thumb: '/thumb/next01.png',
-            title: 'My vides5',
-            authorAvatar: 'sem avatar',
-            updateAt: new Date(),
-            views: 150
-        },
-        {
-            authorName: 'Fernando',
-            thumb: '/thumb/next01.png',
-            title: 'My vides6',
-            authorAvatar: 'sem avatar',
-            updateAt: new Date(),
-            views: 150
-        },
-        {
-            authorName: 'Fernando',
-            thumb: '/thumb/next01.png',
-            title: 'My vides7',
-            authorAvatar: 'sem avatar',
-            updateAt: new Date(),
-            views: 150
-        }
-    ]
+
+    const data: VideoType[] = await mongoClientServices.getAllVideos();
     return {
         props: {
             data: JSON.parse(JSON.stringify(data))
