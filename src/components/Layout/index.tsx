@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import theme from "../../config/theme";
 import TopBar from "./TopBar";
 import NavBar from "./NavBar";
+import {SideBarProvider} from "../../contexts/SideBarContext";
 
 
 const Root = styled('div')(({theme: Theme}) => ({
@@ -54,15 +55,17 @@ function Layout(props: propLayout) {
                 <title>{props.title}</title>
             </Head>
             <Root>
-                <TopBar></TopBar>
-                <NavBar></NavBar>
-                <Wrapper>
-                    <ContentContainer>
-                        <Content>
-                            {props.children}
-                        </Content>
-                    </ContentContainer>
-                </Wrapper>
+                <SideBarProvider>
+                    <TopBar></TopBar>
+                    <NavBar></NavBar>
+                    <Wrapper>
+                        <ContentContainer>
+                            <Content>
+                                {props.children}
+                            </Content>
+                        </ContentContainer>
+                    </Wrapper>
+                </SideBarProvider>
 
 
             </Root>

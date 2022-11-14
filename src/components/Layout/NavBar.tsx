@@ -11,7 +11,8 @@ import {styled} from "@mui/system";
 import Typography from "@mui/material/Typography";
 import {AccountCircle} from "@mui/icons-material";
 import Link from "next/link";
-import React from "react";
+import React, {useContext} from "react";
+import {SideBarContext} from "../../contexts/SideBarContext";
 
 
 const ListItemTextCustomizer = styled(ListItemText)({
@@ -81,6 +82,8 @@ const secondaryMenu: Menu[] = [
 
 
 function NavBar() {
+    const { sideBarToggle, toggleSideBar } = useContext(SideBarContext);
+    const closeSidebar = () => toggleSideBar();
     const router = useRouter();
 
     const isSelected = (item: Menu) => {
@@ -164,7 +167,8 @@ function NavBar() {
         <Hidden mdDown>
             <Drawer
                 anchor="left"
-                open
+                open={sideBarToggle}
+                onClose={closeSidebar}
                 variant="persistent">
                 <StyledDiv>
                     {content}

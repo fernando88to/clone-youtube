@@ -5,7 +5,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import Box from "@mui/material/Box";
 import theme from "../../config/theme";
 import {AccountCircle, Apps, MoreVert, VideoCall} from "@mui/icons-material";
-import { useSession, signIn, signOut } from "next-auth/react"
+import {signIn, signOut, useSession} from "next-auth/react"
+import {useGetSideBarContext} from "../../hooks/useGetSideBarContext";
 
 const AppBarCustomize = styled(AppBar)({
     boxShadow: "none",
@@ -48,13 +49,15 @@ const InputBaseCustomize = styled(InputBase)({
 function TopBar() {
     const { data: session } = useSession();
     session?.address && console.log(session?.address);
-
+    //const { toggleSideBar } =  useContext(SideBarContext);
+    const { toggleSideBar } =  useGetSideBarContext();
+    const closeSidebar = () => toggleSideBar();
 
     return (
         <AppBarCustomize color="default">
             <ToolbarCustomize>
                 <Box display="flex" alignItems="center">
-                    <MenuIcon/>
+                    <MenuIcon onClick={closeSidebar}/>
                     <ImageCustomize src="/new-youtube-logo.svg" alt="logo" width="95" height="18"/>
                 </Box>
                 {/*vai ficar invisivel quando o dispositivo for menor que md*/}
