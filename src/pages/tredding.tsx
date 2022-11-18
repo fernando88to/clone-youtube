@@ -12,6 +12,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 export default function Index2Page() {
     return (
     <Layout  title="Segunda Pagina">
-        <h1>Segunda Página</h1>
+        <h1>Segunda Página3</h1>
     </Layout>);
 }

@@ -1,14 +1,19 @@
 import * as React from 'react';
 import Layout from "../components/Layout";
-import {GetServerSideProps} from "next";
+import {GetServerSideProps, GetServerSidePropsContext} from "next";
 import Box from "@mui/material/Box";
 import {VideoCard} from "../components/VideoCard";
 import {VideoType} from "../types/VideoType";
 import {Grid} from "@mui/material";
 import {mongoClientServices} from "../databases/mongoClientServices";
+import {getSession} from "next-auth/react";
 
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context:GetServerSidePropsContext) => {
+
+
+    const session = await getSession({req:context.req});
+    console.log(session);
 
     const data: VideoType[] = await mongoClientServices.getAllVideos();
     return {

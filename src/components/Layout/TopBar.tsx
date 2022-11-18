@@ -48,7 +48,8 @@ const InputBaseCustomize = styled(InputBase)({
 
 function TopBar() {
     const { data: session } = useSession();
-    session?.address && console.log(session?.address);
+    //console.log(session?.user?.image)
+    //session?.address && console.log(session?.address);
     //const { toggleSideBar } =  useContext(SideBarContext);
     const { toggleSideBar } =  useGetSideBarContext();
     const closeSidebar = () => toggleSideBar();
